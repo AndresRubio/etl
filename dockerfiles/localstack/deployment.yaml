@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: localstack
+spec:
+  selector:
+    matchLabels:
+      app: localstack
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: localstack
+    spec:
+      containers:
+        - name: localstack
+          image: localstack/localstack:0.13.1
+          ports:
+            - containerPort: 4566
+            - containerPort: 4571
+          env:
+            - name: SERVICES
+              value: "s3,ssm,ec2"
+            - name: DEBUG
+              value: "1"
+            - name: DEFAULT_REGION
+              value: "eu-central-1"
+            - name: AWS_ACCESS_KEY_ID
+              value: "test"
+            - name: AWS_SECRET_ACCESS_KEY
+              value: "test"

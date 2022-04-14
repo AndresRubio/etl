@@ -1,0 +1,13 @@
+s3:
+  access_key: test
+  session_role: test
+  secret_access_key: test
+  bucket_name: test-bucket
+  region: eu-central-1
+influx:
+  url: 127.0.0.1
+  port: 8086
+  username: admin
+  password: admin
+  db: test
+  retention_policy: RetPolicy_D30R2

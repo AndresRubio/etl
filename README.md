@@ -24,8 +24,13 @@ Only to show a dockerization process execute tests to run app
 ```docker build -t next/web-app -f dockerfiles/Dockerfile . ```
 ```docker build -t next/web-app .```
 
+## With docker-compose
+From root folder 
+- `docker-compose --profile ml -d --build --remove-orphans`
+- `docker-compose down -v`
+
 # Extra in beta
-This part tries to create an orchestrator based in k8s where you can deploy all the artifacts **not completed**
+This section creates an orchestrator based in k8s where you can deploy all the artifacts **not completed**
 Manual web-app installation on minikube cluster from local, not for prod!!!
 
 Add local docker registry to be read by minikube

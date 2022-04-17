@@ -11,7 +11,7 @@ services:
       - ./dockerfiles/localstack/deployment.yaml:/deployment.yaml
       - ./dockerfiles/localstack/service.yaml:/service.yaml
       - ./dockerfiles/localstack/entrypoint.sh:/entrypoint.sh
-    profiles: ["it"]
+    profiles: ["ml"]
 
   k3s-server:
     image: rancher/k3s:v1.21.8-k3s2
@@ -33,19 +33,7 @@ services:
       - 443:443
       - 5432:30432 # maps internal postgres as external for E2E tests
       - 4566:4566
-    profiles: ["it"]
-
-#  postgres:
-#    image: bitnami/kubectl:1.22
-#    entrypoint: "/entrypoint.sh"
-#    volumes:
-#      - kubeconfig:/output
-#      - ./postgres/deployment.yaml:/deployment.yaml
-#      - ./postgres/service.yaml:/service.yaml
-#      - ./postgres/entrypoint.sh:/entrypoint.sh
-#    depends_on:
-#      - k3s-server
-#    profiles: ["all", "backend", "infra", "ci", "it"]
+    profiles: ["ml"]
 
 #  web-app:
 #    build:
@@ -59,7 +47,7 @@ services:
 #      - 8080:8080
 #    depends_on:
 #      - k3s-server
-#    profiles: ["all", "ci"]
+#    profiles: ["ml", "ops"]
 
 volumes:
   kubeconfig: {}

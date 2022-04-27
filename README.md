@@ -16,7 +16,7 @@ In case you installed awslocal if not can skip this part
 - Default output format [None]:
 
 1. Sets Pyenv or pipfile to python version 3.8.8 to execute in local mode
-2. Creates env for test ```docker run --rm -it -p 4566:4566 -p 4571:4571 localstack/localstack:0.13.1 -e "SERVICES=s3" -d ```
+2. Creates env for test ```docker run --rm -it -p 4566:4566 -p 4571:4571 -e "SERVICES=s3" -d localstack/localstack:0.13.1```
 3. ```python3 -m unnittest discover . -p "test_* -s "./test/unit""```  or from your id execute launcher.py
 
 ## Dockerize
